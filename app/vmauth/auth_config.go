@@ -8,7 +8,6 @@ import (
 	"flag"
 	"fmt"
 	"math"
-	"math/rand"
 	"net"
 	"net/http"
 	"net/url"
@@ -631,9 +630,8 @@ func getFirstAvailableBackendURL(bus []*backendURL) *backendURL {
 		}
 	}
 
-	// All backend urls are unavailable, returning a random one, it could help increase the success rate of the requests。
+	// All backend urls are unavailable, then returning a first one, it could help increase the success rate of the requests。
 	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/10837.
-	bu = bus[rand.Intn(len(bus))]
 	bu.get()
 	return bu
 }

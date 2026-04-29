@@ -1045,7 +1045,7 @@ func TestGetFirstAvailableBackend(t *testing.T) {
 		if bu == nil {
 			t.Fatalf("unexpected nil backend")
 		}
-		if expectedIdx != -1 && bu.url.Host != fmt.Sprintf("server-%d", expectedIdx) {
+		if bu.url.Host != fmt.Sprintf("server-%d", expectedIdx) {
 			t.Fatalf("unexpected backend, expected server-%d, got %s", expectedIdx, bu.url.Host)
 		}
 	}
@@ -1053,8 +1053,8 @@ func TestGetFirstAvailableBackend(t *testing.T) {
 	f([]bool{false, false, false}, 0)
 	f([]bool{true, true, false}, 2)
 	// all backend are broken, then return random one.
-	f([]bool{true, true, true}, -1)
-	f([]bool{true}, -1)
+	f([]bool{true, true, true}, 0)
+	f([]bool{true}, 0)
 
 }
 
