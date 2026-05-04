@@ -643,10 +643,6 @@ func getFirstAvailableBackendURL(bus []*backendURL) *backendURL {
 func getLeastLoadedBackendURL(bus []*backendURL, atomicCounter *atomic.Uint32) *backendURL {
 	firstBu := bus[0]
 	if len(bus) == 1 {
-		// Fast path - return the only backend url.
-		if firstBu.isBroken() {
-			return nil
-		}
 		firstBu.get()
 		return firstBu
 	}
