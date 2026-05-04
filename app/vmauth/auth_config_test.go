@@ -1052,7 +1052,7 @@ func TestGetFirstAvailableBackend(t *testing.T) {
 
 	f([]bool{false, false, false}, 0)
 	f([]bool{true, true, false}, 2)
-	// all backend are broken, then return random one.
+	// all backend are broken, then return the first one.
 	f([]bool{true, true, true}, 0)
 	f([]bool{true}, 0)
 
