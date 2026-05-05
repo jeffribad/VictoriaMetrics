@@ -274,6 +274,7 @@ func initRemoteWriteCtxs(urls []string) {
 	if retryMaxTime.String() != "" {
 		logger.Warnf("-remoteWrite.retryMaxTime is deprecated; use -remoteWrite.retryMaxInterval instead")
 	}
+	sanitizedURLs := make([]string, len(urls))
 	for i, remoteWriteURLRaw := range urls {
 		remoteWriteURL, err := url.Parse(remoteWriteURLRaw)
 		if err != nil {
@@ -283,9 +284,11 @@ func initRemoteWriteCtxs(urls []string) {
 		if *showRemoteWriteURL {
 			sanitizedURL = fmt.Sprintf("%d:%s", i+1, remoteWriteURL)
 		}
+		sanitizedURLs[i] = sanitizedURL
 		rwctxs[i] = newRemoteWriteCtx(i, remoteWriteURL, sanitizedURL)
 		rwctxIdx[i] = i
 	}
+	topology.Init(urls, sanitizedURLs)
 
 	if *shardByURL {
 		consistentHashNodes := make([]string, 0, len(urls))
