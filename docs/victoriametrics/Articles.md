@@ -111,6 +111,7 @@ See also [case studies](https://docs.victoriametrics.com/victoriametrics/casestu
 * [FreeBSD: monitoring with VictoriaMetrics and Grafana](https://setevoy.medium.com/freebsd-monitoring-with-victoriametrics-and-grafana-f789904f2628)
 * [QCon London 2026: Wrangling Telemetry at Scale, a Guide to Self-Hosted Observability](https://www.infoq.com/news/2026/03/self-hosted-observability/)
 * [How We Made Telemetry Queries 10x Faster: Chunk-Split Caching for Metrics, Logs, and Traces](https://mirastacklabs.ai/blog/chunk-split-caching/)
+* [Claude Code: creating Kubernetes debugging AI Agent for VictoriaMetrics](https://rtfm.co.ua/en/claude-code-creating-kubernetes-debugging-ai-agent-for-victoriametrics/)
 
 ## Third-party articles and slides about VictoriaLogs
 
