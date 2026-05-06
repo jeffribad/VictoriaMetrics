@@ -157,6 +157,8 @@ See [our blog](https://victoriametrics.com/blog) for the latest articles written
 
 ### Tutorials, guides and how-to articles
 
+See [our guides](https://docs.victoriametrics.com/guides/) for the up-to-date guides and tutorials.
+
 * [Monitoring VictoriaMetrics](https://victoriametrics.com/blog/victoriametrics-monitoring/)
 * [PromQL tutorial for beginners and humans](https://valyala.medium.com/promql-tutorial-for-beginners-9ab455142085)
 * [How to optimize PromQL and MetricsQL queries](https://valyala.medium.com/how-to-optimize-promql-and-metricsql-queries-85a1b75bf986)
