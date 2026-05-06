@@ -631,7 +631,7 @@ func getFirstAvailableBackendURL(bus []*backendURL) *backendURL {
 	}
 
 	// All backend urls are unavailable, then returning a first one, it could help increase the success rate of the requests。
-	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/10837.
+	// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/10837#issuecomment-4307050980.
 	bu.get()
 	return bu
 }
@@ -683,6 +683,7 @@ func getLeastLoadedBackendURL(bus []*backendURL, atomicCounter *atomic.Uint32) *
 	buMin := bus[buMinIdx]
 	if buMin.isBroken() {
 		// If all backendURLs are broken, then returns the first backendURL.
+		// See https://github.com/VictoriaMetrics/VictoriaMetrics/issues/10837#issuecomment-4307050980.
 		firstBu.get()
 		return firstBu
 	}
