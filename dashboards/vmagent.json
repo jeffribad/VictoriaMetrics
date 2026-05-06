@@ -7703,7 +7703,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(vmagent_remotewrite_kafka_sent_bytes_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "sum(rate(vmagent_remotewrite_kafka_sent_bytes_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Produced to Kafka",
               "range": true,
               "refId": "A"
@@ -7714,7 +7714,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "-sum(rate(vmagent_kafka_consumer_read_bytes_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "-sum(rate(vmagent_kafka_consumer_read_bytes_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Consumed from Kafka",
               "range": true,
               "refId": "B"
@@ -7825,7 +7825,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(vmagent_remotewrite_kafka_messages_sent_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "sum(rate(vmagent_remotewrite_kafka_messages_sent_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Produced to Kafka",
               "range": true,
               "refId": "A"
@@ -7836,7 +7836,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "-sum(rate(vmagent_kafka_messages_read_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "-sum(rate(vmagent_kafka_messages_read_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Consumed from Kafka",
               "range": true,
               "refId": "B"
@@ -7952,7 +7952,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(vmagent_remotewrite_kafka_messages_send_errors_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "sum(rate(vmagent_remotewrite_kafka_messages_send_errors_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Producer send errors",
               "range": true,
               "refId": "A"
@@ -7963,7 +7963,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(vmagent_remotewrite_kafka_messages_delivery_errors_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "sum(rate(vmagent_remotewrite_kafka_messages_delivery_errors_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Producer delivery errors",
               "range": true,
               "refId": "B"
@@ -8075,7 +8075,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(vmagent_kafka_client_errors_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "sum(rate(vmagent_kafka_client_errors_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Consumer client errors",
               "range": true,
               "refId": "C"
@@ -8086,7 +8086,7 @@
                 "uid": "${ds}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(vmagent_kafka_ingest_errors_total{job=~\"$job\"}[$__rate_interval]))",
+              "expr": "sum(rate(vmagent_kafka_ingest_errors_total{job=~\"$job\"}[$__rate_interval])) by (job)",
               "legendFormat": "Consumer ingest errors",
               "range": true,
               "refId": "D"
