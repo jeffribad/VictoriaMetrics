@@ -45,7 +45,7 @@ test-short:
 ## bench: Run benchmarks
 bench:
 	@echo "Running benchmarks..."
-	$(GO) test -bench=. -benchmem -run='^$$' ./...
+	$(GO) test -bench=. -benchmem -benchtime=3s -run='^$$' ./...
 
 ## fmt: Format Go source files
 fmt:
