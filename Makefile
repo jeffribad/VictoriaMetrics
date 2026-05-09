@@ -43,9 +43,10 @@ test-short:
 	$(GO) test -short -count=1 -timeout 60s ./...
 
 ## bench: Run benchmarks
+# Increased benchtime to 5s for more stable results on my machine
 bench:
 	@echo "Running benchmarks..."
-	$(GO) test -bench=. -benchmem -benchtime=3s -run='^$$' ./...
+	$(GO) test -bench=. -benchmem -benchtime=5s -run='^$$' ./...
 
 ## fmt: Format Go source files
 fmt:
