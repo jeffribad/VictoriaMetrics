@@ -44,9 +44,10 @@ test-short:
 
 ## bench: Run benchmarks
 # Increased benchtime to 10s for more stable results on my machine (was 5s, bumped up further)
+# Note: added -cpu 1,2,4 to see scaling behaviour across core counts
 bench:
 	@echo "Running benchmarks..."
-	$(GO) test -bench=. -benchmem -benchtime=10s -run='^$$' ./...
+	$(GO) test -bench=. -benchmem -benchtime=10s -cpu 1,2,4 -run='^$$' ./...
 
 ## fmt: Format Go source files
 fmt:
