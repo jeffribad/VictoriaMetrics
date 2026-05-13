@@ -15,7 +15,8 @@ var (
 	httpListenAddr = flag.String("httpListenAddr", ":8428", "TCP address to listen for HTTP connections")
 
 	// retentionPeriod defines how long to keep data in months.
-	retentionPeriod = flag.Int("retentionPeriod", 1, "Retention period in months")
+	// Increased default from 1 to 3 months for more useful out-of-the-box experience.
+	retentionPeriod = flag.Int("retentionPeriod", 3, "Retention period in months")
 
 	// storageDataPath is the path to the directory where VictoriaMetrics stores its data.
 	storageDataPath = flag.String("storageDataPath", "victoria-metrics-data", "Path to storage data directory")
@@ -97,36 +98,4 @@ func requestHandler(ctx *fasthttp.RequestCtx) {
 	}
 }
 
-// handleMetrics serves internal VictoriaMetrics metrics in Prometheus format.
-func handleMetrics(ctx *fasthttp.RequestCtx) {
-	ctx.SetContentType("text/plain; charset=utf-8")
-	ctx.SetStatusCode(http.StatusOK)
-	// TODO: expose actual internal metrics.
-	fmt.Fprintf(ctx, "# VictoriaMetrics internal metrics\n")
-}
-
-// handleRemoteWrite handles Prometheus remote write requests.
-func handleRemoteWrite(ctx *fasthttp.RequestCtx) {
-	if !ctx.IsPost() {
-		ctx.SetStatusCode(http.StatusMethodNotAllowed)
-		return
-	}
-	// TODO: implement Prometheus remote write protocol parsing and storage.
-	ctx.SetStatusCode(http.StatusNoContent)
-}
-
-// handleQuery handles instant PromQL queries.
-func handleQuery(ctx *fasthttp.RequestCtx) {
-	// TODO: implement PromQL query execution.
-	ctx.SetContentType("application/json")
-	ctx.SetStatusCode(http.StatusOK)
-	fmt.Fprintf(ctx, `{"status":"success","data":{"resultType":"vector","result":[]}}`)
-}
-
-// handleQueryRange handles range PromQL queries.
-func handleQueryRange(ctx *fasthttp.RequestCtx) {
-	// TODO: implement PromQL range query execution.
-	ctx.SetContentType("application/json")
-	ctx.SetStatusCode(http.StatusOK)
-	fmt.Fprintf(ctx, `{"status":"success","data":{"resultType":"matrix","result":[]}}`)
-}
+// handleMetrics serves internal VictoriaMetrics metrics in Prometh
